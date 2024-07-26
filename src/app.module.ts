@@ -1,9 +1,9 @@
-/* eslint-disable prettier/prettier */
+import { Tema } from './tema/entities/tema.entity';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { Postagem } from './postagem/entities/postagem.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PostagemModule } from './postagem/postagem.module';
+import { TemaModule } from './tema/tema.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -13,11 +13,12 @@ import { PostagemModule } from './postagem/postagem.module';
       username: 'root',
       password: 'root',
       database: 'db_blogpessoal',
-      entities: [Postagem],
+      entities: [Postagem, Tema],
       synchronize: true,
       logging: true,
     }),
-    PostagemModule
+    PostagemModule,
+    TemaModule
   ],
   controllers: [],
   providers: [],
