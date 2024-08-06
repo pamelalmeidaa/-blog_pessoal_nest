@@ -2,7 +2,8 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty } from "class-validator";
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Usuario } from './../../usuario/entities/usuario.entity';
-import { Tema } from "../../tema/entities/tema.entity";
+import { Tema}  from '../../tema/entities/Tema.entity';
+import { TemaService } from "../../tema/services/tema.service";
 
 @Entity({name: "tb_postagens"})
 export class Postagem {
@@ -25,7 +26,7 @@ export class Postagem {
     @UpdateDateColumn()
     data: Date
     
-    @ApiProperty({ type: () => Tema })  
+    @ApiProperty({ type: () => TemaService })  
     @ManyToOne(() => Tema, (tema) => tema.postagem, {
         onDelete: "CASCADE"
     })

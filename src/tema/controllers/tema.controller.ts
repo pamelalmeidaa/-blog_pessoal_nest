@@ -2,7 +2,9 @@ import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPip
 import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 import { TemaService } from "../services/tema.service";
-import { Tema } from "../entities/tema.entity";
+import { Tema } from "../entities/Tema.entity";
+
+
 
 @ApiTags('Tema')
 @UseGuards(JwtAuthGuard)
